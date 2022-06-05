@@ -1145,15 +1145,15 @@ contract Collection is ERC721Enumerable, Ownable {
     using Strings for uint256;
     string public baseURI;
     string public baseExtension = ".json";
-        uint256 public cost = 0.001 ether;
-    uint256 public maxSupply = 100000;
+        uint256 public cost = 0.05 ether;
+    uint256 public maxSupply = 10;
     uint256 public maxMintAmount = 5;
     bool public paused = false;
 
-    constructor() ERC721("Net2Dev NFT Collection", "N2D") {}
+    constructor() ERC721("Capitalist Pigs v3 NFT Collection", "CPV3") {}
         // internal
         function _baseURI() internal view virtual override returns (string memory) {
-        return "ipfs://EE5MmqVp5MmqVp7ZRMBBizicVh9ficVh9fjUofWicVh9f/";
+        return "ipfs://QmbUTQF6q2a484wj7CvY2oLSh5gMBog73NnFLqT4GU88qT/";
     }
         // public
 
@@ -1165,7 +1165,7 @@ contract Collection is ERC721Enumerable, Ownable {
             require(supply + _mintAmount <= maxSupply);
             
             if (msg.sender != owner()) {
-            require(msg.value == cost * _mintAmount, "Need to send 0.08 ether!");
+            require(msg.value == cost * _mintAmount, "Need to send 0.05 ether!");
             }
             
             for (uint256 i = 1; i <= _mintAmount; i++) {
